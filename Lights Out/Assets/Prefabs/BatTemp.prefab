@@ -100,8 +100,40 @@ MonoBehaviour:
   batDamage: 0
   energyController: {fileID: 0}
   player: {fileID: 0}
-  localBat: {fileID: 1049462913408845987}
   triggerDistance: 10
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.60014045
+      outSlope: 0.60014045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7068536
+      value: 0.42421147
+      inSlope: 1.2821538
+      outSlope: 1.2821538
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1.9641672
+      outSlope: 1.9641672
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!61 &8293708142995266322
 BoxCollider2D:
   m_ObjectHideFlags: 0

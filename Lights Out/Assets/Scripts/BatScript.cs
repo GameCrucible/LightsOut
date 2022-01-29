@@ -7,38 +7,53 @@ public class BatScript : MonoBehaviour
     [SerializeField] private int batDamage;
     [SerializeField] private EnergyController energyController;
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject localBat;
     [SerializeField] private float triggerDistance;
-    private bool seeking = false;
+    private bool awake = false;
+    private float elapsedTime;
+    private float precentageComplete = 0;
     private Vector2 batPosition;
     private Vector2 playerPosition;
+    private Vector2 targetPosition;
+    [SerializeField] private AnimationCurve curve;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        batPosition = transform.position;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (seeking) {
-            //Have bat head towards player
-
-        } else {
-            //Check if player is in radius
-            batPosition = localBat.transform.position;
-            playerPosition = player.transform.position;
-            if (Mathf.Abs(Vector2.Distance(batPosition, playerPosition)) <= triggerDistance) {
-                TriggerBat();
+    void Update()
+    {   
+        //Finds players position each frame
+        playerPosition = player.transform.position;
+        if (!awake) {
+           //Check if player is in radius
+            if (PlayerDetected()) {
+                targetPosition = new Vector2(batPosition.x, batPosition.y - 1.5f);
+                awake = true;
             }
+        } else {
+            //If bat reaches destination, set new destination
+            if (precentageComplete >= 1) {
+                batPosition = targetPosition;
+                targetPosition = playerPosition;
+                elapsedTime = 0;
+            }
+            //Records how much time has passed for the lerp animation, percentage complete being the amount it's moved
+            elapsedTime += Time.deltaTime;
+            precentageComplete = elapsedTime / 1f;
+            transform.position = Vector2.Lerp(batPosition, targetPosition, curve.Evaluate(precentageComplete));
         }
     }
 
-    private void TriggerBat() {
-        //Move bat down and hover for a second, then begin seeking
-        Debug.Log("Bat Triggered");
-        seeking = true;
+    private bool PlayerDetected() {
+        playerPosition = player.transform.position;
+            if (Mathf.Abs(Vector2.Distance(batPosition, playerPosition)) <= triggerDistance) {
+                return true;
+            } else {
+                return false;
+            }
     }
     
     private void OnTriggerEnter2D(Collider2D collision) {
