@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ApolloMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    public CharacterController2D controller;
 
     public float runSpeed = 40f;
 
@@ -16,7 +16,7 @@ public class ApolloMovement : MonoBehaviour
     void Update() {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (Input.GetButtonDown("Space")) {
+        if (Input.GetButtonDown("Jump")) {
             jump = true;
         }        
 
