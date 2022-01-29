@@ -2921,6 +2921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableCharacter: {fileID: 745074360}
   mainCamera: {fileID: 1963514607}
+  cameraMoveSpeed: 1
 --- !u!4 &1704222172
 Transform:
   m_ObjectHideFlags: 0
