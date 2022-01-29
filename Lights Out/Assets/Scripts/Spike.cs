@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spike : MonoBehaviour, ICollisionHandler
+public class Spike : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private int spikeDamage;
+    [SerializeField] private EnergyController energyController;
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("Player")) {
+            Debug.Log("Player Hit");
+            Damage();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void CollisionEnter(string colliderName, GameObject other) {
-        
+    void Damage() {
+        energyController.UpdateEnergy(-25);
     }
 }

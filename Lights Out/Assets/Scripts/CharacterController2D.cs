@@ -32,7 +32,7 @@ public class CharacterController2D : MonoBehaviour
 
 	int jumpPotential = 2;
 
-	[SerializeField] private int energy = 100;
+	//[SerializeField] private int energy = 100;
 
 	[SerializeField] private GameObject playerPrefab;
 
@@ -141,6 +141,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+	/*
 	public void reduceEnergy(int amount) {
 		energy = energy - amount;
 		if(energy < 1) {
@@ -154,8 +155,9 @@ public class CharacterController2D : MonoBehaviour
 			energy = 100;
 		}
 	}
+	*/
 
-	private void death() {
+	public void death() {
 		Destroy(playerPrefab);
 		LevelManager.instance.Respawn();
 	}
