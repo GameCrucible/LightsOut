@@ -72,8 +72,8 @@ GameObject:
   - component: {fileID: 5078994041474729347}
   - component: {fileID: 5078994041474729348}
   - component: {fileID: 2112332854618369020}
+  - component: {fileID: 4889935832143727283}
   - component: {fileID: 5078994041474729349}
-  - component: {fileID: 5578133027116965798}
   - component: {fileID: 5078994041474729350}
   m_Layer: 0
   m_Name: Apollo_Concept_Art
@@ -198,6 +198,20 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4889935832143727283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078994041474729337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618950b50d242d042b004a5856afefad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2112332854618369020}
+  runSpeed: 40
 --- !u!61 &5078994041474729349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,20 +238,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.7774878, y: 6.472968}
   m_EdgeRadius: 0
---- !u!114 &5578133027116965798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5078994041474729337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c47b1d20e3e8b4f890836ebeb83ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 2112332854618369020}
-  runSpeed: 40
 --- !u!58 &5078994041474729350
 CircleCollider2D:
   m_ObjectHideFlags: 0
