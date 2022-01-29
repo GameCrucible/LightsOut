@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2740665604315046928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1950794178320641731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4889935832143727283}
   - component: {fileID: 5078994041474729349}
   - component: {fileID: 5078994041474729350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Apollo_Concept_Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}

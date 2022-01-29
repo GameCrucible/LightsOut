@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2112332854618369020, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: m_JumpForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112332854618369020, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: m_AirControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112332854618369020, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: m_MovementSmoothing
+      value: 0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889935832143727283, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: runSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5078994041474729337, guid: ce008c891b3159244b0ccfc73b9463bd,
         type: 3}
       propertyPath: m_Name
@@ -195,6 +215,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5078994041474729348, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078994041474729350, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: ab1f017915ad1384a99661a6fac43acc, type: 2}
     m_RemovedComponents:
     - {fileID: 5578133027116965798, guid: ce008c891b3159244b0ccfc73b9463bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce008c891b3159244b0ccfc73b9463bd, type: 3}

@@ -30,6 +30,11 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
+	int jumpPotential = 2;
+
+	[SerializeField] private int energy = 100;
+
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -56,6 +61,7 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
+					jumpPotential = 2;
 			}
 		}
 	}
@@ -124,14 +130,26 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && jump)
+		if ((jumpPotential > 1) && jump)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x , m_JumpForce);
+			jumpPotential--;
 		}
 	}
 
+	public void reduceEnergy(int amount) {
+		energy = energy - amount;
+		if(energy < 1) {
+			death();
+		}
+	}
+
+	private void death() {
+
+	}
 
 	private void Flip()
 	{
