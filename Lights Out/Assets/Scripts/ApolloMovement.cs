@@ -4,44 +4,32 @@ using UnityEngine;
 
 public class ApolloMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
-    public float maxSpeed;
-    public float currSpeed;
-    public float jumpForce;
+    public CharacterController controller;
 
-    public int light;
+    public float runSpeed = 40f;
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-
-    }
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool crouch = false;
 
     // Update is called once per frame
-    void Update()
-    {
-        Move();
-        Jump();
+    void Update() {
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        if (Input.GetButtonDown("Space")) {
+            jump = true;
+        }        
+
+        if (Input.GetButtonDown("Crouch")) {
+            crouch = true;
+        } else if (Input.GetButtonUp("Crouch")) {
+            crouch = false;
+        }
 
     }
-
-    void Jump(){
-
-    }
-
-    void Move(){
-        
-    }
-
-    void checkLight(){
-
-    }
-
-    void CheckIfGrounded(){
-
+    
+    void FixedUpdate() {
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
     }
 }
