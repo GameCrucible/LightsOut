@@ -288,6 +288,12 @@ PrefabInstance:
       propertyPath: m_MovementSmoothing
       value: 0.084
       objectReference: {fileID: 0}
+    - target: {fileID: 4730070018291117002, guid: ce008c891b3159244b0ccfc73b9463bd,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1209743612708529664, guid: 674060cc03eaa6945bd1f60d311563e3,
+        type: 3}
     - target: {fileID: 4889935832143727283, guid: ce008c891b3159244b0ccfc73b9463bd,
         type: 3}
       propertyPath: runSpeed
