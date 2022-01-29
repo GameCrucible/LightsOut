@@ -15,6 +15,6 @@ public class Spike : MonoBehaviour
     }
 
     void Damage() {
-        energyController.UpdateEnergy(-25);
+        energyController.UpdateEnergy(spikeDamage);
     }
 }

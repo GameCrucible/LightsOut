@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//I am an idiot and used 3D vectors.... oops
 public class CameraHandler : MonoBehaviour
 {
     [SerializeField] private GameObject playableCharacter;
