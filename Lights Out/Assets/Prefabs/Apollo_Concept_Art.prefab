@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 5078994041474729346}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3989471782370532103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3636139048570687423}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3636139048570687423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989471782370532103}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.8, y: 0.06, z: 0}
+  m_LocalScale: {x: 6.071665, y: 6.320146, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5078994041474729346}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5078994041474729337
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,6 +105,7 @@ GameObject:
   - component: {fileID: 4889935832143727283}
   - component: {fileID: 5078994041474729349}
   - component: {fileID: 5078994041474729350}
+  - component: {fileID: 4730070018291117002}
   m_Layer: 6
   m_Name: Apollo_Concept_Art
   m_TagString: Player
@@ -95,6 +126,7 @@ Transform:
   m_Children:
   - {fileID: 1950794178320641731}
   - {fileID: 2740665604315046928}
+  - {fileID: 3636139048570687423}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -255,3 +287,16 @@ CircleCollider2D:
   m_Offset: {x: -0.07911484, y: -2.5}
   serializedVersion: 2
   m_Radius: 3.7999694
+--- !u!114 &4730070018291117002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078994041474729337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8db69a4d785b1468dc0b45f3fb7c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 3636139048570687423}

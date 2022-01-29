@@ -141,22 +141,6 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	/*
-	public void reduceEnergy(int amount) {
-		energy = energy - amount;
-		if(energy < 1) {
-			death();
-		}
-	}
-
-	public void gainEnergy(int amount) {
-		energy = energy + amount;
-		if(energy > 100) {
-			energy = 100;
-		}
-	}
-	*/
-
 	public void death() {
 		Destroy(playerPrefab);
 		LevelManager.instance.Respawn();
@@ -167,9 +151,6 @@ public class CharacterController2D : MonoBehaviour
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		transform.Rotate (0f, 180, 0f);
 	}
 }
