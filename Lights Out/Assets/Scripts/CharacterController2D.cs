@@ -19,8 +19,6 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	private AudioSource footstep;
-
 	[Header("Events")]
 	[Space]
 
@@ -34,13 +32,12 @@ public class CharacterController2D : MonoBehaviour
 
 	int jumpPotential = 2;
 
-	//[SerializeField] private int energy = 100;
+	bool facingRight = true;
 
 	[SerializeField] private GameObject playerPrefab;
 
 	private void Awake()
 	{
-		footstep = GetComponent<AudioSource>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -121,6 +118,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
 			// If the input is moving the player right and the player is facing left...
+			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
 				// ... flip the player.
@@ -149,6 +147,7 @@ public class CharacterController2D : MonoBehaviour
 		LevelManager.instance.Respawn();
 	}
 
+	
 	private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
@@ -156,9 +155,5 @@ public class CharacterController2D : MonoBehaviour
 
 		transform.Rotate (0f, 180, 0f);
 	}
-
-	/*private void footstep() 
-	{
-		footstep.Play(footstep);
-	}*/
+	
 }

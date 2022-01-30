@@ -11,11 +11,12 @@ public class BatScript : MonoBehaviour
     private bool awake = false;
     private float elapsedTime;
     private float precentageComplete = 0;
-    private string facing = "right";
     private Vector2 batPosition;
     private Vector2 playerPosition;
     private Vector2 targetPosition;
     [SerializeField] private AnimationCurve curve;
+    [SerializeField] private int health;
+
     
     // Start is called before the first frame update
     void Start()
@@ -46,15 +47,9 @@ public class BatScript : MonoBehaviour
             precentageComplete = elapsedTime / 1f;
             transform.position = Vector2.Lerp(batPosition, targetPosition, curve.Evaluate(precentageComplete));
         }
-        if (playerPosition.x < batPosition.x && facing == "right") {
-            transform.Rotate(0f, 180, 0f);
-            facing = "left";
-        } else if (playerPosition.x > batPosition.x && facing == "left") {
-            transform.Rotate(0f, -180, 0f);
-            facing = "right";
-        }
-    }
 
+
+    }
 
     private bool PlayerDetected() {
         playerPosition = player.transform.position;
@@ -65,6 +60,14 @@ public class BatScript : MonoBehaviour
             }
     }
     
+    public void TakeDamage (int damage) {
+        health -= damage;
+
+        if(health <= 0) {
+            Die();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Player")) {
             Debug.Log("Player Hit");
@@ -74,5 +77,9 @@ public class BatScript : MonoBehaviour
 
     void Damage() {
         energyController.UpdateEnergy(batDamage);
+    }
+
+    void Die() {
+        Destroy(gameObject);
     }
 }
