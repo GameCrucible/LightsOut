@@ -32,7 +32,7 @@ public class CharacterController2D : MonoBehaviour
 
 	int jumpPotential = 2;
 
-	//[SerializeField] private int energy = 100;
+	bool facingRight = true;
 
 	[SerializeField] private GameObject playerPrefab;
 
@@ -118,6 +118,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
 			// If the input is moving the player right and the player is facing left...
+			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
 				// ... flip the player.
@@ -146,6 +147,7 @@ public class CharacterController2D : MonoBehaviour
 		LevelManager.instance.Respawn();
 	}
 
+	
 	private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
@@ -153,4 +155,5 @@ public class CharacterController2D : MonoBehaviour
 
 		transform.Rotate (0f, 180, 0f);
 	}
+	
 }

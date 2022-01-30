@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151778fe5cd27045b3c130e16fa4ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batDamage: 0
+  batDamage: -30
   energyController: {fileID: 0}
   player: {fileID: 0}
   triggerDistance: 10
@@ -134,6 +134,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  health: 0
 --- !u!61 &8293708142995266322
 BoxCollider2D:
   m_ObjectHideFlags: 0
