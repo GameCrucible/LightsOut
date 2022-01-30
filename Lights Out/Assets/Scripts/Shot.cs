@@ -6,6 +6,7 @@ public class Shot : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    [SerializeField] private Camera playerCam; 
 
     Vector2 lookDirection;
     float lookAngle;
@@ -13,37 +14,19 @@ public class Shot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        /*
+        lookDirection = playerCam.ScreenToWorldPoint(Input.mousePosition);
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         Debug.Log(lookAngle);
         
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-        
-        /*
-        if(Input.GetButtonDown("Horizontal")) {
-            if(Input.GetButtonDown("Up"))) {
-                firePoint.transform.SetPositionAndRotation();
-            }
-            if(Input.GetButtonDown("Down")) {
-                firePoint.transform.SetPositionAndRotation();
-            }
-        } else() {
-            */
-            /*
-            if(Input.GetAxisRaw("Vertical") > 0) {
-                firePoint.transform.SetPositionAndRotation(new Vector3(0f, 5.5f, 0f), new Quaternion(0f, 0f, 90f, 0f));
-            }
-            if(Input.GetAxisRaw("Vertical") < 0) {
-                firePoint.transform.SetPositionAndRotation(new Vector3(0f, -6.6f, 0f), new Quaternion(0f, 0f, -90f, 0f));
-            }
-            if(Input.GetAxisRaw("Vertical") == 0) {
-                firePoint.transform.SetPositionAndRotation(new Vector3(0f, 0f, 0f), new Quaternion(0f, 0f, 0f, 0f));
-            }
-            
-        }
         */
-        
+        Vector3 mousePosition = GetMouseWorldPosition();
+
+        Vector3 aimDirection = (mousePosition - transform.position).normalized;
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        firePoint.eulerAngles = new Vector3(0, 0, angle);
+
         if(Input.GetButtonDown("Fire1")) {
             Shoot();
         }
@@ -52,5 +35,16 @@ public class Shot : MonoBehaviour
     //Shooting logic
     void Shoot() {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    public static Vector3 GetMouseWorldPosition() {
+        Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+        vec.z = 0f;
+        return vec;
+    }
+
+    public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera) {
+        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
+        return worldPosition;
     }
 }
