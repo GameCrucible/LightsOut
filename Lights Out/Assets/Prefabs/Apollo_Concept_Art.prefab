@@ -245,7 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2112332854618369020}
-  runSpeed: 100
+  energyController: {fileID: 4287949354400630981, guid: 526e9d2d1dcac284b9326649b180c9c6,
+    type: 3}
+  currSpeed: 100
 --- !u!61 &5078994041474729349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -303,7 +305,6 @@ MonoBehaviour:
   firePoint: {fileID: 3636139048570687423}
   bulletPrefab: {fileID: 1209743612708529664, guid: 674060cc03eaa6945bd1f60d311563e3,
     type: 3}
-  playerCam: {fileID: 6958886467758223389}
 --- !u!20 &6958886467758223389
 Camera:
   m_ObjectHideFlags: 0
