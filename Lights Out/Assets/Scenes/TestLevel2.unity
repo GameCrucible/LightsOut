@@ -6954,6 +6954,11 @@ PrefabInstance:
       objectReference: {fileID: 221623009}
     - target: {fileID: -4315371812238637381, guid: ed5bee19b016afa4ca7237093709d9f3,
         type: 3}
+      propertyPath: batDamage
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: -4315371812238637381, guid: ed5bee19b016afa4ca7237093709d9f3,
+        type: 3}
       propertyPath: energyController
       value: 
       objectReference: {fileID: 886459424}
