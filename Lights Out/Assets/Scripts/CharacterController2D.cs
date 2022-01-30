@@ -19,6 +19,8 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	private AudioSource footstep;
+
 	[Header("Events")]
 	[Space]
 
@@ -38,6 +40,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Awake()
 	{
+		footstep = GetComponent<AudioSource>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -153,4 +156,9 @@ public class CharacterController2D : MonoBehaviour
 
 		transform.Rotate (0f, 180, 0f);
 	}
+
+	/*private void footstep() 
+	{
+		footstep.Play(footstep);
+	}*/
 }
