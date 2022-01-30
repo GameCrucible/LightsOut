@@ -15,10 +15,10 @@ public class EnergyController : MonoBehaviour
     }
     
     public void UpdateEnergy(int amount) {
-        if (timeSinceHit > 1) {
+        if (timeSinceHit > .5) {
             timeSinceHit = 0;
             if (amount < 0) {
-                flashImage.StartFlash(.15f, .35f);
+                flashImage.StartFlash(.05f, .35f);
             }
             currEnergy = currEnergy + amount;
             if(currEnergy < 1) {
