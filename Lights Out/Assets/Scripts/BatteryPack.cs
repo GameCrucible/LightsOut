@@ -7,6 +7,10 @@ public class BatteryPack : MonoBehaviour
     [SerializeField] private int packHealth;
     [SerializeField] private EnergyController energyController;
 
+    void Awake() {
+        energyController = FindObjectOfType<EnergyController>();
+    }
+
      private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Player")) {
             if(energyController.currEnergy != 100){

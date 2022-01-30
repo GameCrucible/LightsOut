@@ -10,6 +10,10 @@ public class EnergyController : MonoBehaviour
     private bool debounce;
     private float timeSinceHit;
 
+    void Awake() {
+        characterController = FindObjectOfType<CharacterController2D>();
+    }
+
     void Update() {
         timeSinceHit += Time.deltaTime;
     }

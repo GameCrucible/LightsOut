@@ -7,6 +7,10 @@ public class Spike : MonoBehaviour
     [SerializeField] private int spikeDamage;
     [SerializeField] private EnergyController energyController;
 
+    void Awake() {
+        energyController = FindObjectOfType<EnergyController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Player")) {
             Debug.Log("Player Hit by Spike");

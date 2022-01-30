@@ -18,6 +18,11 @@ public class BatScript : MonoBehaviour
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private int health;
 
+
+    void Awake() {
+        energyController = FindObjectOfType<EnergyController>();
+        player = GameObject.Find("Apollo_Concept_Art");
+    }
     
     // Start is called before the first frame update
     void Start()

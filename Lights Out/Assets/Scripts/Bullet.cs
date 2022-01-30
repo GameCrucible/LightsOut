@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         
         BatScript enemy = hitInfo.GetComponent<BatScript>();
         if (enemy != null) {
-            enemy.TakeDamage(100);
+            enemy.TakeDamage(50);
         }
         
         Destroy(gameObject);
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(elapsedTime >= 2f) {
+        if(elapsedTime >= 0.75f) {
             Destroy(gameObject);
         }
     }

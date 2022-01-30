@@ -13,6 +13,10 @@ public class CameraHandler : MonoBehaviour
     float yPos = 0;
     float xPos = 0;
 
+    void Awake() {
+        playableCharacter = GameObject.Find("Apollo_Concept_Art");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
