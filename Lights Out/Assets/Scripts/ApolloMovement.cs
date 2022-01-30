@@ -13,6 +13,7 @@ public class ApolloMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+    bool boost = false;
     float runTime;
 
     // Update is called once per frame
@@ -20,6 +21,9 @@ public class ApolloMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")) {
             jump = true;
+        }
+        if (Input.GetButtonDown("Fire2")) {
+            boost = true;
         }
         if (Input.GetButton("Fire3")) {
             currSpeed = runSpeed * 1.5f;
@@ -45,7 +49,8 @@ public class ApolloMovement : MonoBehaviour
     }
     
     void FixedUpdate() {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, boost);
         jump = false;
+        boost = false;
     }
 }

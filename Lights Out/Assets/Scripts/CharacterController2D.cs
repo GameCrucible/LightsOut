@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_BoostForce = 20f;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
@@ -31,6 +33,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	int jumpPotential = 2;
+	[SerializeField] int boostPotential = 1;
 
 	bool facingRight = true;
 
@@ -63,12 +66,13 @@ public class CharacterController2D : MonoBehaviour
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 					jumpPotential = 2;
+					boostPotential = 1;
 			}
 		}
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch, bool jump, bool boost)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -134,17 +138,28 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if ((jumpPotential >= 1) && jump)
 		{
-			// Add a vertical force to the player.
+			// Set a vertical force for the player.
 			m_Grounded = false;
 
 			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x , m_JumpForce);
 			jumpPotential--;
 		}
+		/*
+		if ((boostPotential > 0) && boost)
+		{
+			// Add a vertical force to the player.
+			Debug.Log("Boost");
+			m_Grounded = false;
+
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x , m_BoostForce);
+			boostPotential--;
+		}
+		*/
 	}
 
 	public void death() {
-		Destroy(playerPrefab);
-		LevelManager.instance.Respawn();
+		m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	
