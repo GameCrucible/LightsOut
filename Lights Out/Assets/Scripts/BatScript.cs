@@ -9,6 +9,7 @@ public class BatScript : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float triggerDistance;
     private bool awake = false;
+    private string facing = "right";
     private float elapsedTime;
     private float precentageComplete = 0;
     private Vector2 batPosition;
@@ -17,6 +18,11 @@ public class BatScript : MonoBehaviour
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private int health;
 
+
+    void Awake() {
+        energyController = FindObjectOfType<EnergyController>();
+        player = GameObject.Find("Apollo_Concept_Art");
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -47,7 +53,13 @@ public class BatScript : MonoBehaviour
             precentageComplete = elapsedTime / 1f;
             transform.position = Vector2.Lerp(batPosition, targetPosition, curve.Evaluate(precentageComplete));
         }
-
+        if (playerPosition.x < batPosition.x && facing == "right") {
+            facing = "left";
+            transform.Rotate(0, 180, 0);
+        } else if (playerPosition.x > batPosition.x && facing == "left") {
+            facing = "right";
+            transform.Rotate(0, -180, 0);
+        }
 
     }
 

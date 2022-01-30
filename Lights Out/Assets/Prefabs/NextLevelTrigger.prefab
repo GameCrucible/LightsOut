@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4050080935729068928}
   - component: {fileID: 6173460404363806347}
   - component: {fileID: 1988520597815867002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NextLevelTrigger
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

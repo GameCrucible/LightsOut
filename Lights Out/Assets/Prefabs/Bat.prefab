@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151778fe5cd27045b3c130e16fa4ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batDamage: 20
+  batDamage: -20
   energyController: {fileID: 4287949354400630981, guid: 526e9d2d1dcac284b9326649b180c9c6,
     type: 3}
   player: {fileID: 5078994041474729337, guid: ce008c891b3159244b0ccfc73b9463bd, type: 3}
@@ -136,8 +136,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.39391115
-      value: 0.3030165
+      time: 0.33973435
+      value: 0.17576131
       inSlope: 1.2884716
       outSlope: 1.2884716
       tangentMode: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.602849
-      value: 0.49435896
+      time: 0.61118543
+      value: 0.4896825
       inSlope: 1.6067502
       outSlope: 1.6067502
       tangentMode: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7345961
-      value: 0.8081502
+      time: 0.8345869
+      value: 0.77045333
       inSlope: 1.7608688
       outSlope: 1.7608688
       tangentMode: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  health: 0
 --- !u!61 &2834598629879084008
 BoxCollider2D:
   m_ObjectHideFlags: 0

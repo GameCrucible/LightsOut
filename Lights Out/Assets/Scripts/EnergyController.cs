@@ -6,13 +6,30 @@ public class EnergyController : MonoBehaviour
 {
     public int currEnergy;
     [SerializeField] private CharacterController2D characterController;
+    [SerializeField] FlashImage flashImage = null;
+    private bool debounce;
+    private float timeSinceHit;
+
+    void Awake() {
+        characterController = FindObjectOfType<CharacterController2D>();
+    }
+
+    void Update() {
+        timeSinceHit += Time.deltaTime;
+    }
     
     public void UpdateEnergy(int amount) {
-        currEnergy = currEnergy + amount;
-        if(currEnergy < 1) {
-            characterController.death();
-        } else if(currEnergy > 100) {
-            currEnergy = 100;
+        if (timeSinceHit > .5) {
+            timeSinceHit = 0;
+            if (amount < 0) {
+                flashImage.StartFlash(.05f, .35f);
+            }
+            currEnergy = currEnergy + amount;
+            if(currEnergy < 1) {
+                characterController.death();
+            } else if(currEnergy > 100) {
+                currEnergy = 100;
+            }
         }
     }
 }

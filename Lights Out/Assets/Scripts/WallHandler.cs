@@ -9,9 +9,9 @@ public class WallHandler : MonoBehaviour
     [SerializeField] private int wallDamage;
     [SerializeField] private EnergyController energyController;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    
+    void Awake() {
+        energyController = FindObjectOfType<EnergyController>();
     }
 
     // Update is called once per frame

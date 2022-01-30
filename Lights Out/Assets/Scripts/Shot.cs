@@ -6,7 +6,7 @@ public class Shot : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    [SerializeField] private Camera playerCam; 
+    //[SerializeField] private Camera playerCam; 
 
     Vector2 lookDirection;
     float lookAngle;
